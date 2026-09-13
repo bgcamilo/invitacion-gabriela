@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#07152f" />
+    <meta name="description" content="Invitación a los quince años de Gabriela Ariza." />
+    <title>Gabriela Ariza · Mis XV años</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="stars" aria-hidden="true"></div>
+    <header class="hero" id="inicio">
+      <nav class="nav container" aria-label="Navegación principal">
+        <a class="monogram" href="#inicio" aria-label="Inicio">GA</a>
+        <a class="nav-link" href="#confirmar">Confirmar asistencia</a>
+      </nav>
+      <div class="hero-content container">
+        <p class="eyebrow">Con la alegría de mi corazón</p>
+        <p class="mis-xv">Mis XV años</p>
+        <h1>Gabriela<br /><em>Ariza</em></h1>
+        <div class="hero-divider"><span></span><i>✦</i><span></span></div>
+        <p class="hero-date">03 · OCTUBRE · 2026</p>
+        <a class="button button-light" href="#confirmar">Acompáñame a celebrar</a>
+      </div>
+      <a class="scroll-cue" href="#celebracion" aria-label="Ver detalles">desliza <span>↓</span></a>
+    </header>
+
+    <main>
+      <section class="intro section container reveal" id="celebracion">
+        <p class="eyebrow blue">Una noche para recordar</p>
+        <h2>Tu presencia hará<br /><em>brillar</em> este momento.</h2>
+        <p class="intro-copy">Hay personas que hacen la vida más bonita con solo estar. Tú eres una de ellas, y por eso quiero que me acompañes a celebrar un capítulo que guardaré para siempre en mi corazón.</p>
+        <p class="signature">Gabriela</p>
+      </section>
+
+      <section class="details-band">
+        <div class="container details-grid">
+          <article class="detail reveal">
+            <span class="detail-icon">✦</span>
+            <p class="detail-label">Fecha</p>
+            <h3>Sábado, 03 de octubre</h3>
+            <p>2026</p>
+          </article>
+          <article class="detail reveal">
+            <span class="detail-icon">◷</span>
+            <p class="detail-label">Hora</p>
+            <h3>9:00 p. m.</h3>
+            <p>Te esperamos puntualmente</p>
+          </article>
+          <article class="detail reveal">
+            <span class="detail-icon">⌖</span>
+            <p class="detail-label">Lugar</p>
+            <h3>Rosas de la Tarde</h3>
+            <p>Buchitolo, Candelaria<br />Valle del Cauca</p>
+            <a class="text-link" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/?api=1&query=Rosas%20de%20la%20Tarde%2C%20Buchitolo%2C%20Candelaria%2C%20Valle%20del%20Cauca">Ver ubicación ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="countdown-section section container reveal" aria-labelledby="countdown-title">
+        <p class="eyebrow blue">La cuenta regresiva comenzó</p>
+        <h2 id="countdown-title">Faltan</h2>
+        <div class="countdown" role="timer" aria-live="polite">
+          <div><strong id="days">000</strong><span>días</span></div>
+          <div><strong id="hours">00</strong><span>horas</span></div>
+          <div><strong id="minutes">00</strong><span>minutos</span></div>
+          <div><strong id="seconds">00</strong><span>segundos</span></div>
+        </div>
+      </section>
+
+      <section class="gallery-section section container" aria-labelledby="galeria-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow blue">Un momento muy mío</p>
+          <h2 id="galeria-title">Pronto, más <em>recuerdos</em></h2>
+        </div>
+        <div class="gallery reveal" id="gallery" aria-label="Galería de Gabriela"></div>
+        <p class="gallery-note">Momentos que hacen esta celebración aún más especial.</p>
+      </section>
+
+      <section class="dress section container reveal">
+        <div class="dress-card">
+          <div class="dress-icon" aria-hidden="true">♠</div>
+          <p class="eyebrow">Código de vestuario</p>
+          <h2>Negro de <em>gala</em></h2>
+          <p>Una noche elegante merece tu mejor versión. Te invitamos a acompañarnos en negro de gala.</p>
+        </div>
+      </section>
+
+      <section class="rsvp-section" id="confirmar">
+        <div class="container rsvp-layout">
+          <div class="rsvp-copy reveal">
+            <p class="eyebrow">RSVP</p>
+            <h2>Confirma tu<br /><em>asistencia</em></h2>
+            <p>Me hará muy feliz celebrar contigo. Por favor, confirma antes del <strong>20 de septiembre de 2026</strong>.</p>
+            <p class="tiny">Cada invitado puede registrar un solo acompañante.</p>
+          </div>
+          <form class="rsvp-form reveal" id="rsvp-form" novalidate>
+            <div class="form-row">
+              <label for="name">Tu nombre completo</label>
+              <input id="name" name="nombre" type="text" autocomplete="name" placeholder="Escribe tu nombre" required />
+            </div>
+            <fieldset>
+              <legend>¿Podrás acompañarme?</legend>
+              <div class="choice-row">
+                <label class="choice"><input type="radio" name="asistencia" value="Sí" required /><span>Sí, allí estaré</span></label>
+                <label class="choice"><input type="radio" name="asistencia" value="No" /><span>No podré asistir</span></label>
+              </div>
+            </fieldset>
+            <fieldset id="guest-section" hidden>
+              <legend>¿Llevarás acompañante?</legend>
+              <div class="choice-row">
+                <label class="choice"><input type="radio" name="acompanante" value="Sí" /><span>Sí</span></label>
+                <label class="choice"><input type="radio" name="acompanante" value="No" /><span>No</span></label>
+              </div>
+              <div class="form-row guest-name" id="guest-name-row" hidden>
+                <label for="guest-name">Nombre de tu acompañante</label>
+                <input id="guest-name" name="nombre_acompanante" type="text" placeholder="Un solo acompañante" />
+              </div>
+            </fieldset>
+            <div class="total" id="total-row" hidden>
+              <span>Total de personas</span><strong id="total">1</strong>
+              <input id="total-input" name="total_personas" type="hidden" value="1" />
+            </div>
+            <button class="button button-gold" type="submit">Enviar confirmación</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer><span>GA</span><p>Mis XV años · 03 de octubre de 2026</p></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
