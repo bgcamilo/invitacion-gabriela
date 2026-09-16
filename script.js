@@ -6,9 +6,9 @@ const EVENT_DATE = new Date("2026-10-03T21:00:00-05:00");
 const PHOTO_URLS = [
   "assets/IMG_5996.jpg",
   "assets/IMG_6000.jpg",
-  "assets/IMG_6022.jpg",
+  "assets/IMG_6036.jpg",
   "assets/IMG_6026.jpg",
-  "assets/IMG_6036.jpg"
+  "assets/IMG_6022.jpg"
 ];
 
 function updateCountdown() {
