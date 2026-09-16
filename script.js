@@ -7,7 +7,8 @@ const PHOTO_URLS = [
   "assets/IMG_5996.jpg",
   "assets/IMG_6000.jpg",
   "assets/IMG_6022.jpg",
-  "assets/IMG_6026.jpg"
+  "assets/IMG_6026.jpg",
+  "assets/IMG_6036.jpg"
 ];
 
 function updateCountdown() {
@@ -33,43 +34,14 @@ function renderGallery() {
 }
 
 const form = document.getElementById("rsvp-form");
-const guestSection = document.getElementById("guest-section");
-const guestNameRow = document.getElementById("guest-name-row");
-const totalRow = document.getElementById("total-row");
-const guestName = document.getElementById("guest-name");
-const total = document.getElementById("total");
-const totalInput = document.getElementById("total-input");
 const status = document.getElementById("form-status");
 
 function attendanceValue() { return form.querySelector('input[name="asistencia"]:checked')?.value; }
-function guestValue() { return form.querySelector('input[name="acompanante"]:checked')?.value; }
-function updateRsvp() {
-  const attends = attendanceValue() === "Sí";
-  guestSection.hidden = !attends;
-  totalRow.hidden = !attendanceValue();
-  if (!attends) {
-    form.querySelectorAll('input[name="acompanante"]').forEach(input => input.checked = false);
-    guestName.value = "";
-    guestNameRow.hidden = true;
-  }
-  const hasGuest = attends && guestValue() === "Sí";
-  guestNameRow.hidden = !hasGuest;
-  guestName.required = hasGuest;
-  const count = attends ? (hasGuest ? 2 : 1) : 0;
-  total.textContent = count;
-  totalInput.value = count;
-}
 
-form.addEventListener("change", updateRsvp);
 form.addEventListener("submit", async event => {
   event.preventDefault();
   status.className = "form-status";
   if (!form.checkValidity()) { form.reportValidity(); return; }
-  if (attendanceValue() === "Sí" && !guestValue()) {
-    status.textContent = "Indícanos si asistirás con acompañante.";
-    status.classList.add("error");
-    return;
-  }
   if (!RSVP_ENDPOINT) {
     status.textContent = "La confirmación está lista; falta conectar la hoja de respuestas. Consulta el archivo INSTRUCCIONES-RSVP.md.";
     status.classList.add("error");
@@ -79,8 +51,10 @@ form.addEventListener("submit", async event => {
   submitButton.disabled = true;
   submitButton.textContent = "Enviando…";
   try {
-    await fetch(RSVP_ENDPOINT, { method: "POST", mode: "no-cors", body: new FormData(form) });
-    form.reset(); updateRsvp();
+    const formData = new FormData(form);
+    formData.set("total_personas", attendanceValue() === "Sí" ? "1" : "0");
+    await fetch(RSVP_ENDPOINT, { method: "POST", mode: "no-cors", body: formData });
+    form.reset();
     status.textContent = "¡Gracias! Tu respuesta fue registrada.";
   } catch {
     status.textContent = "No pudimos enviar tu respuesta. Intenta de nuevo más tarde.";
@@ -91,6 +65,6 @@ form.addEventListener("submit", async event => {
   }
 });
 
-updateCountdown(); setInterval(updateCountdown, 1000); renderGallery(); updateRsvp();
+updateCountdown(); setInterval(updateCountdown, 1000); renderGallery();
 const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add("visible"); observer.unobserve(entry.target); } }), { threshold: .12 });
 document.querySelectorAll(".reveal").forEach(element => observer.observe(element));

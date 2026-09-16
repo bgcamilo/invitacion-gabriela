@@ -96,7 +96,6 @@
             <p class="eyebrow">RSVP</p>
             <h2>Confirma tu<br /><em>asistencia</em></h2>
             <p>Me hará muy feliz celebrar contigo. Por favor, confirma antes del <strong>20 de septiembre de 2026</strong>.</p>
-            <p class="tiny">Cada invitado puede registrar un solo acompañante.</p>
           </div>
           <form class="rsvp-form reveal" id="rsvp-form" novalidate>
             <div class="form-row">
@@ -110,21 +109,6 @@
                 <label class="choice"><input type="radio" name="asistencia" value="No" /><span>No podré asistir</span></label>
               </div>
             </fieldset>
-            <fieldset id="guest-section" hidden>
-              <legend>¿Llevarás acompañante?</legend>
-              <div class="choice-row">
-                <label class="choice"><input type="radio" name="acompanante" value="Sí" /><span>Sí</span></label>
-                <label class="choice"><input type="radio" name="acompanante" value="No" /><span>No</span></label>
-              </div>
-              <div class="form-row guest-name" id="guest-name-row" hidden>
-                <label for="guest-name">Nombre de tu acompañante</label>
-                <input id="guest-name" name="nombre_acompanante" type="text" placeholder="Un solo acompañante" />
-              </div>
-            </fieldset>
-            <div class="total" id="total-row" hidden>
-              <span>Total de personas</span><strong id="total">1</strong>
-              <input id="total-input" name="total_personas" type="hidden" value="1" />
-            </div>
             <button class="button button-gold" type="submit">Enviar confirmación</button>
             <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
           </form>
